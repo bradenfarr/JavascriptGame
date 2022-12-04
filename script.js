@@ -41,6 +41,8 @@ function game() {
             i=5;
             console.log("Game cancelled.");
         } else {
+            i -= 1;
+            alert('Invalid player input, please try again')
             console.log("Invalid player input")
         }
     };
