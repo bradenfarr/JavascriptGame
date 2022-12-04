@@ -33,12 +33,14 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
     for (let i = 0; i < 5; i++) {
-    let playerChoice = window.prompt("Please type: rock, paper, or scissors");
+    let playerPrompt = window.prompt("Please type: rock, paper, or scissors");
+    let playerChoice = playerPrompt.toLowerCase().trim();
     function playerPlay () {
         if (playerChoice === "rock" || playerChoice === 'paper' || playerChoice === 'scissors') {
-            return playerChoice.toLowerCase();
+            return playerChoice;
         } else if (playerChoice === null){
             i=5;
+            alert('Game cancelled, thanks for playing!')
             console.log("Game cancelled.");
         } else {
             i -= 1;
