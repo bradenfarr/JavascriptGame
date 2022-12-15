@@ -16,6 +16,8 @@ p {
     pointer-events: none;
 }
 
+/* button styles */
+
 button {
   background-color: darkgray;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -42,6 +44,8 @@ button:active {
   transform: translateY(1px);
 }
 
+/* img container/styles for rock paper and scissor images */
+
 .imgContainer {
     display: flex;
     justify-content: center;
@@ -59,17 +63,23 @@ button:active {
     transition: all 50ms;
 }
 
+/* title container/styles */
+
 .titleContainer {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
+/* result styles */
+
 .result {
     margin: 0px;
     text-align: center;
     transition: all 250ms;
 }
+
+/* img container for the player and computer */
 
 .playersContainer {
     display: flex;
@@ -85,4 +95,35 @@ button:active {
     cursor: pointer;
 }
 
+/* Animations for win, loss, tie */
+
+#winAnimation {
+    animation-name: win;
+    animation-duration: 2s;
+}
+
+@keyframes win {
+    50% {text-shadow: rgb(55, 182, 76) 1px 0 10px;}
+    100% {text-shadow: none;}
+}
+
+#lossAnimation {
+    animation-name: loss;
+    animation-duration: 2s;
+}
+
+@keyframes loss {
+    50% {text-shadow: rgb(179, 44, 44) 1px 0 10px;}
+    100% {text-shadow: none;}
+}
+
+#tieAnimation {
+    animation-name: tie;
+    animation-duration: 2s;
+}
+
+@keyframes tie {
+    50% {text-shadow: rgb(255, 255, 255) 1px 0 10px;}
+    100% {text-shadow: none;}
+}
 
