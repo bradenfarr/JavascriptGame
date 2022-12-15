@@ -1,3 +1,8 @@
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+const resultText = document.querySelector(".result");
+
 function computerPlay () {
     let values = ["rock", "paper", "scissors"];
     let computerChoice = values[Math.floor(Math.random() * values.length)];
@@ -6,50 +11,80 @@ function computerPlay () {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-            return "This round is a tie!";
+            let x = resultText
+            x.style.marginRight = "0px"
+            x.style.marginLeft = "0px"
+            x.style.transition = "1s"
+            return resultText.textContent = "This round is a tie!";
     };
     if (playerSelection === "rock") {
         if (computerSelection === "paper") {
-            return "Sorry you lost, paper beats rock.";
+            return loss(playerSelection, computerSelection);
         } else {
-            return "You won! rock beats paper.";
+            return win(playerSelection, computerSelection);
         }
     };
     if (playerSelection === "paper") {
         if (computerSelection === "scissors") {
-            return "Sorry you lost, scissors beats paper.";
+            return loss(playerSelection, computerSelection);
         } else {
-            return "You won! paper beats rock.";
+            return win(playerSelection, computerSelection);
         }
     };
     if (playerSelection === "scissors") {
         if (computerSelection === "rock") {
-            return "Sorry you lost, rock beats scissors.";
+            return loss(playerSelection, computerSelection);
         } else {
-            return "You won! scissors beats paper.";
+            return win(playerSelection, computerSelection);
         }
     };
 };
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-    let playerPrompt = window.prompt("Please type: rock, paper, or scissors");
-    let playerChoice = playerPrompt.toLowerCase().trim();
-    function playerPlay () {
-        if (playerChoice === "rock" || playerChoice === 'paper' || playerChoice === 'scissors') {
-            return playerChoice;
-        } else if (playerChoice === null){
-            i=5;
-            alert('Game cancelled, thanks for playing!')
-            console.log("Game cancelled.");
-        } else {
-            i -= 1;
-            alert('Invalid player input, please try again')
-            console.log("Invalid player input")
-        }
-    };
-    console.log(playRound(playerPlay(), computerPlay()))
-    };
-};
+// loss(playerSelection, computerSelection);
+// win(playerSelection, computerSelection);
 
-game();
+function loss(playerChoice, computerChoice) {
+    let result = `Sorry you lost, ${computerChoice} beats ${playerChoice}.`
+    let x = resultText
+    x.style.marginRight = "0px"
+    x.style.marginLeft = "300px"
+    x.style.transition = "1s"
+    resultText.textContent = result
+}
+
+function win(playerChoice, computerChoice) {
+    let x = resultText
+    x.style.marginLeft= "0px"
+    x.style.marginRight = "400px"
+    x.style.transition = "1s"
+    let result = `You won! ${playerChoice} beats ${computerChoice}.`
+    resultText.textContent = result
+}
+
+rock.addEventListener('click', function(){
+    playerSelection = "rock";
+    playRound(playerSelection,computerPlay());
+    disable()
+});
+
+paper.addEventListener('click', function(){
+    playerSelection = "paper";
+    playRound(playerSelection,computerPlay());
+    disable();
+});
+
+scissors.addEventListener('click', function(){
+    playerSelection = "scissors";
+    playRound(playerSelection,computerPlay());
+    disable();
+});
+
+
+function disable(){
+    rock.disabled = true;
+    paper.disabled = true;
+    scissors.disabled = true;
+    setTimeout(function(){rock.disabled = false;},5000);
+    setTimeout(function(){paper.disabled = false;},5000);
+    setTimeout(function(){scissors.disabled = false;},5000);
+}

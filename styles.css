@@ -1,0 +1,88 @@
+* {
+    font-family: Helvetica, sans-serif;
+}
+
+body{
+    background-color: rgb(44, 48, 44);
+}
+
+h1 {
+    font-size: 40px;
+    pointer-events: none;
+}
+
+p {
+    font-size: 25px;
+    pointer-events: none;
+}
+
+button {
+  background-color: darkgray;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 1) 0 1px 3px 0;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+  text-decoration: none;
+  transition: all 250ms;
+  width: auto;
+}
+
+button:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+
+button:active {
+  background-color: #F0F0F1;
+  transform: translateY(1px);
+}
+
+.imgContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.imgContainer img {
+    height: 300px;
+    width: auto;
+    margin: 50px;
+    cursor: pointer;
+}
+
+.imgContainer img:active {
+    transform: translateY(-10px);
+    transition: all 50ms;
+}
+
+.titleContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.result {
+    margin: 0px;
+    text-align: center;
+    transition: all 250ms;
+}
+
+.playersContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.playersContainer img{
+    height: 150px;
+    width: auto;
+    margin: 100px;
+    margin-top: 90px;
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+
+
