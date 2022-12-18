@@ -12,7 +12,7 @@
     <div class = titleContainer>
         <h1>Pick Rock, Paper, or Scissors</h1>
         <p>or</p>
-        <button class = "fiveRounds">Play Best of 5 Rounds</button>
+        <button class = "resetScore">Reset Score</button>
     </div>
     
     <div class = "imgContainer">
@@ -24,8 +24,18 @@
     <p class = result>Click a picture to play</p>
 
     <div class = "playersContainer">
-        <img src="./resources/user.png" alt="clipart user">
-        <img src="./resources/computer.png" alt="clipart computer">
+        <div class = "playersContainer">
+            <p >Player Wins:&nbsp;</p>
+            <p class = "playerWins">0</p>
+        </div>
+
+        <img class = "playerImg" src="./resources/user.png" alt="clipart user">
+        <img class = "computerImg" src="./resources/computer.png" alt="clipart computer">
+
+        <div class = "playersContainer">
+            <p>Computer Wins:&nbsp;</p>
+            <p class = "computerWins">0</p>
+        </div>
     </div>
 </body>
 </html> 

@@ -2,9 +2,14 @@ const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 const resultText = document.querySelector(".result");
+const playerWinCounter = document.querySelector(".playerWins");
+const computerWinCounter = document.querySelector(".computerWins");
+const resetBtn = document.querySelector(".resetScore");
 
 let cooldown = false;
 const RECHARGE_TIME = 2000;
+let playerScore = 0;
+let computerScore = 0;
 
 // computerPlay function returns the computers choice
 
@@ -53,8 +58,12 @@ function loss(playerChoice, computerChoice) {
     x.style.marginRight = "0px";
     x.style.transition = "1s";
     resultText.setAttribute("id", "lossAnimation");
+
     let result = `Sorry you lost, ${computerChoice} beats ${playerChoice}.`;
     resultText.textContent = result;
+
+    computerScore += 1;
+    computerWinCounter.textContent = computerScore;
 }
 
 function win(playerChoice, computerChoice) {
@@ -62,11 +71,15 @@ function win(playerChoice, computerChoice) {
     void resultText.offsetWidth;
     let x = resultText;
     x.style.marginLeft = "0px";
-    x.style.marginRight = "400px";
+    x.style.marginRight = "290px";
     x.style.transition = "1s";
     resultText.setAttribute("id", "winAnimation");
+
     let result = `You won, ${playerChoice} beats ${computerChoice}!`;
     resultText.textContent = result;
+
+    playerScore += 1;
+    playerWinCounter.textContent = playerScore
 }
 
 function tie() {
@@ -76,6 +89,7 @@ function tie() {
     x.style.marginLeft = "0px";
     x.style.marginRight = "0px";
     x.style.transition = "1s";
+
     resultText.setAttribute("id", "tieAnimation")
     resultText.textContent = "This round is a tie!";
 }
@@ -105,6 +119,15 @@ scissors.addEventListener('click', function(){
         disable();
     }
 });
+
+// reset player and computer score on resetBtn click
+
+resetBtn.addEventListener('click', function(){
+    playerScore = 0;
+    computerScore = 0;
+    playerWinCounter.textContent = playerScore;
+    computerWinCounter.textContent = computerScore;
+})
 
 // disable function to prevent spam clicking
 

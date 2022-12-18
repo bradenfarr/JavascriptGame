@@ -87,13 +87,25 @@ button:active {
 }
 
 .playersContainer img{
-    height: 150px;
-    width: auto;
-    margin: 100px;
+    height: auto;
+    width: 170px;
+    margin: 0px;
+    margin-left: 100px;
+    margin-right: 40px;
     margin-top: 90px;
     margin-bottom: 0px;
-    cursor: pointer;
 }
+
+.playersContainer p{
+    color: darkgray;
+    padding-top: 20px;
+    font-size: 20px;
+}
+
+.computerImg {
+    margin-right: 30px;
+}
+
 
 /* Animations for win, loss, tie */
 
