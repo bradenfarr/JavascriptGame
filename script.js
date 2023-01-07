@@ -7,7 +7,7 @@ const computerWinCounter = document.querySelector(".computerWins");
 const resetBtn = document.querySelector(".resetScore");
 
 let cooldown = false;
-const RECHARGE_TIME = 2000;
+const RECHARGE_TIME = 1500;
 let playerScore = 0;
 let computerScore = 0;
 
@@ -127,6 +127,13 @@ resetBtn.addEventListener('click', function(){
     computerScore = 0;
     playerWinCounter.textContent = playerScore;
     computerWinCounter.textContent = computerScore;
+
+    let x = resultText;
+    x.style.marginLeft = "0px";
+    x.style.marginRight = "0px";
+    x.style.transition = "1s";
+    resultText.textContent = "Click a picture to play";
+    disable();
 })
 
 // disable function to prevent spam clicking
